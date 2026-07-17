@@ -1,0 +1,92 @@
+@if(task){
+<div class="tp">
+
+  <!-- Ambient blobs -->
+  <div class="tp-blob tp-blob-1"></div>
+  <div class="tp-blob tp-blob-2"></div>
+
+  <!-- Nav -->
+  <div class="tp-nav">
+    <div class="tp-brand">
+      <div class="tp-brand-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+        </svg>
+      </div>
+      <span class="tp-brand-name">Taskflow</span>
+    </div>
+    <a class="tp-back" routerLink="/dashboard">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M19 12H5M12 19l-7-7 7-7"/>
+      </svg>
+      Dashboard
+    </a>
+  </div>
+
+  <!-- Hero banner -->
+  <div class="tp-hero" [class.hero-done]="task.completed" [class.hero-pending]="!task.completed">
+    <div class="tp-hero-inner">
+      <div class="tp-eyebrow">
+        <span class="tp-badge" [class.badge-done]="task.completed" [class.badge-pending]="!task.completed">
+          <span class="badge-pulse"></span>
+          {{ task.completed ? 'Completed' : 'In Progress' }}
+        </span>
+        <span class="tp-id">Task #{{ task.id }}</span>
+      </div>
+      <h1 class="tp-title">{{ task.todo }}</h1>
+    </div>
+    <!-- Decorative grid lines -->
+    <div class="tp-grid-deco"></div>
+  </div>
+
+  <!-- Detail card -->
+  <div class="tp-detail">
+
+    <div class="tp-row">
+      <div class="tp-field">
+        <div class="field-icon field-icon-status">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/>
+          </svg>
+        </div>
+        <div class="field-body">
+          <p class="field-label">Status</p>
+          <p class="field-value" [class.val-done]="task.completed" [class.val-pending]="!task.completed">
+            {{ task.completed | completed }}
+          </p>
+        </div>
+      </div>
+
+      <div class="tp-vline"></div>
+
+      <div class="tp-field">
+        <div class="field-icon field-icon-user">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/>
+          </svg>
+        </div>
+        <div class="field-body">
+          <p class="field-label">Assigned To</p>
+          <p class="field-value">User {{ task.userId }}</p>
+        </div>
+      </div>
+
+      <div class="tp-vline"></div>
+
+      <div class="tp-field">
+        <div class="field-icon field-icon-id">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 3H8"/><path d="M12 3v4"/>
+          </svg>
+        </div>
+        <div class="field-body">
+          <p class="field-label">Task ID</p>
+          <p class="field-value">#{{ task.id }}</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+}

@@ -1,1 +1,80 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Syne:wght@700;800&display=swap');
+
+:root {
+  /* Canvas */
+  --canvas:          #07090e;
+  --surface:         #0c0f17;
+  --card:            #101420;
+  --card-hover:      #141829;
+  --card-active:     #171c2d;
+
+  /* Borders */
+  --border:          rgba(255,255,255,0.07);
+  --border-hover:    rgba(255,255,255,0.14);
+  --border-accent:   rgba(124,58,237,0.5);
+
+  /* Accents */
+  --violet:          #7c3aed;
+  --violet-light:    #a78bfa;
+  --violet-glow:     rgba(124,58,237,0.2);
+  --violet-dim:      rgba(124,58,237,0.08);
+
+  --emerald:         #059669;
+  --emerald-light:   #34d399;
+  --emerald-glow:    rgba(5,150,105,0.18);
+  --emerald-dim:     rgba(5,150,105,0.08);
+
+  --amber:           #d97706;
+  --amber-light:     #fbbf24;
+  --amber-glow:      rgba(217,119,6,0.18);
+  --amber-dim:       rgba(217,119,6,0.08);
+
+  --rose:            #e11d48;
+  --rose-dim:        rgba(225,29,72,0.1);
+
+  /* Text */
+  --t1: #f1f5f9;
+  --t2: #94a3b8;
+  --t3: #475569;
+  --t4: #2d3748;
+
+  /* Radii */
+  --r-sm:  8px;
+  --r-md:  14px;
+  --r-lg:  20px;
+  --r-xl:  28px;
+
+  /* Shadows */
+  --s-card:   0 1px 2px rgba(0,0,0,0.6), 0 8px 32px rgba(0,0,0,0.5);
+  --s-hover:  0 2px 4px rgba(0,0,0,0.7), 0 16px 48px rgba(0,0,0,0.6), 0 0 0 1px rgba(124,58,237,0.2);
+  --s-glow:   0 0 60px rgba(124,58,237,0.12);
+
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --t: 0.2s var(--ease);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: var(--canvas);
+  color: var(--t1);
+  line-height: 1.6;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--violet-light); text-decoration: none; }
+
+/* ─── Noise overlay ────────────────────────────────────────── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+}
+
