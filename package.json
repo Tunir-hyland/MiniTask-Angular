@@ -3,19 +3,14 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "node dist/task-dashboard/server/server.mjs",
+    "start": "ng serve",
     "build": "ng build",
-    "dev": "ng serve",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:task-dashboard": "node dist/task-dashboard/server/server.mjs"
   },
   "private": true,
   "packageManager": "npm@11.12.1",
-  "engines": {
-    "node": "22.22.3",
-    "npm": ">=10.0.0"
-  },
   "dependencies": {
     "@angular/common": "^22.0.0",
     "@angular/compiler": "^22.0.0",
